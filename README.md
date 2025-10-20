@@ -1,3 +1,20 @@
+# GitLab4J FORK
+
+This is a fork of https://github.com/gitlab4j/gitlab4j-api intended for quicker releases of contributed features.
+
+This fork should NOT diverge from the original source code, except for support commits, that should be added to the `forks/base` branch.
+
+The sole goal of this fork is to allow features that will be contributed to the source repository to be released earlier than official releases,
+as well as make it easier to test these features.
+
+Once new versions are released, we should create a new branch named `forks/{versionNumber}`, e.g. `forks/6.0.1` based on
+`forks/base` and rebased onto the commit of the released version.
+
+Please always contribute back to the source repository and don't implement or create dependencies on features that are not
+accepted.
+
+---
+
 # GitLab4J&trade; API (gitlab4j-api)<br />Java Client Library for the GitLab REST API
 
 [![Maven Central](https://img.shields.io/maven-central/v/org.gitlab4j/gitlab4j-api.svg)](http://mvnrepository.com/artifact/org.gitlab4j/gitlab4j-api)
