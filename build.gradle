@@ -59,10 +59,10 @@ subprojects {
             }
             maven {
                 def isSnapshot = project.version.toString().endsWith('-SNAPSHOT')
-                def repoUser = findProperty("repoUser") ?: System.getenv("REPO_USER")
-                def repoPass = findProperty("repoPass") ?: System.getenv("REPO_PASS")
-                def releasesRepoUrl = findProperty("releasesRepoUrl") ?: System.getenv("RELEASES_REPO_URL")
-                def snapshotsRepoUrl = findProperty("snapshotsRepoUrl") ?: System.getenv("SNAPSHOTS_REPO_URL")
+                def repoUser = findProperty("repoUser") ?: System.getenv("REPO_USER") ?: ""
+                def repoPass = findProperty("repoPass") ?: System.getenv("REPO_PASS") ?: ""
+                def releasesRepoUrl = findProperty("releasesRepoUrl") ?: System.getenv("RELEASES_REPO_URL") ?: ""
+                def snapshotsRepoUrl = findProperty("snapshotsRepoUrl") ?: System.getenv("SNAPSHOTS_REPO_URL") ?: ""
 
                 name = 'internalArtifactory'
                 url = uri(isSnapshot ? snapshotsRepoUrl : releasesRepoUrl)
