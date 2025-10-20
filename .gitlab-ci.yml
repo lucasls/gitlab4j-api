@@ -1,0 +1,18 @@
+workflow:
+  name: "Publish fork"
+  rules:
+    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+      when: never
+    - if: $CI_COMMIT_BRANCH =~ /^forks\//
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^forks\//
+
+stages:
+  - publish
+
+publish-artifactory:
+  image: gradle:jdk11-ubi
+  stage: publish
+  script:
+    - ./gradlew clean build
+    - ./gradlew publish
+
